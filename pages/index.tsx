@@ -1,15 +1,26 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import { GetStaticProps } from 'next';
+import fetch from 'node-fetch';
 
-const IndexPage = () => (
+const IndexPage = (props: any) => (
   <Layout title="Home | Next.js + TypeScript Example">
     <h1>Hello Next.js 👋</h1>
     <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+      <pre>
+        <code>{JSON.stringify(props, null, 2)}</code>
+      </pre>
     </p>
   </Layout>
-)
+);
 
-export default IndexPage
+export const getStaticProps: GetStaticProps = async (_context) => {
+  const response = await fetch('https://api-dev.devatech.us/api/v2/pages/3/');
+  const cmsData = await response.json();
+  return {
+    props: {
+      cmsData,
+    },
+  };
+};
+
+export default IndexPage;
