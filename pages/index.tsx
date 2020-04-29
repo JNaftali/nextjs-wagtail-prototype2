@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import { GetStaticProps } from 'next';
-import fetch from 'node-fetch';
+import fetch from 'isomorphic-unfetch';
 
 const IndexPage = (props: any) => (
   <Layout title="Home | Next.js + TypeScript Example">

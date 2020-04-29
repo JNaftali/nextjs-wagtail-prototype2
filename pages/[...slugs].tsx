@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import fetch from 'node-fetch';
+import fetch from 'isomorphic-unfetch';
 
 const IndexPage = (props: any) => {
   if (props.code > 400) return <Error statusCode={props.code} />;
