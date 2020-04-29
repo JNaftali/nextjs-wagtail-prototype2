@@ -17,11 +17,9 @@ const IndexPage = (props: any) => {
   return (
     <Layout title={props.cmsData.meta.seo_title}>
       <h1>{props.cmsData.meta.seo_title}</h1>
-      <p>
-        <pre>
-          <code>{JSON.stringify(props, null, 2)}</code>
-        </pre>
-      </p>
+      <pre>
+        <code>{JSON.stringify(props, null, 2)}</code>
+      </pre>
     </Layout>
   );
 };
